@@ -1,2 +1,0 @@
-# ARTHAX
-# ARTHAX
