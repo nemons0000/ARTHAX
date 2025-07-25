@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artha-X Financial Insights</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Artha-X: Your Savage Financial CFO</h1>
+            <p>Get brutal, honest, and actionable insights into your finances.</p>
+        </header>
+
+        <section class="user-input-section card">
+            <h2>User Information</h2>
+            <div class="input-group">
+                <label for="userId">Enter User ID (Phone Number):</label>
+                <input type="text" id="userId" placeholder="e.g., 9876543210" value="9876543210">
+            </div>
+            <p class="note">This ID is used to fetch your financial data from the MCP server.</p>
+        </section>
+
+        <section class="controls-section">
+            <div class="control-group card">
+                <h2>Spending Analysis</h2>
+                <p>Get a holistic view of your spending patterns, investments, and nudges.</p>
+                <button id="analyzeSpendingBtn">Analyze Spending</button>
+            </div>
+
+            <div class="control-group card">
+                <h2>Expense Categorization</h2>
+                <p>Get a quick category suggestion for any transaction.</p>
+                <div class="input-group">
+                    <label for="expenseDescription">Transaction Description:</label>
+                    <input type="text" id="expenseDescription" placeholder="e.g., Starbucks coffee, Amazon book">
+                </div>
+                <button id="suggestCategoryBtn">Suggest Category</button>
+            </div>
+
+            <div class="control-group card">
+                <h2>Financial Goal Breakdown</h2>
+                <p>Get an actionable plan for your financial goals.</p>
+                <div class="input-group">
+                    <label for="financialGoal">Your Goal:</label>
+                    <input type="text" id="financialGoal" placeholder="e.g., Save for a down payment, Early retirement">
+                </div>
+                <button id="breakdownGoalBtn">Breakdown Goal</button>
+            </div>
+
+            <div class="control-group card">
+                <h2>Home Loan Affordability</h2>
+                <p>Understand if you can afford that dream home loan.</p>
+                <div class="input-group">
+                    <label for="homeLoanQuery">Your Loan Query:</label>
+                    <input type="text" id="homeLoanQuery" placeholder="e.g., Can I afford a 50 lakh home loan?">
+                </div>
+                <button id="analyzeHomeLoanBtn">Analyze Home Loan</button>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <h2>Artha-X Insights</h2>
+            <div id="loadingIndicator" class="loading-spinner hidden"></div>
+            <div id="errorMessage" class="error-message hidden"></div>
+            <div id="loginRequiredMessage" class="login-message hidden">
+                <p>MCP login required. Please visit the <a id="loginUrlLink" href="#" target="_blank">login page</a> to authenticate and try again.</p>
+            </div>
+            <div id="insightsOutput" class="card hidden">
+                <h3>Spending Analysis Insights:</h3>
+                <pre id="spendingAnalysisContent"></pre>
+                <div id="spendingPieChart" class="chart-container hidden">
+                    <h4>Spending Distribution:</h4>
+                    <img id="pieChartImage" src="" alt="Spending Distribution Pie Chart">
+                </div>
+            </div>
+            <div id="categorySuggestionOutput" class="card hidden">
+                <h3>Category Suggestion:</h3>
+                <p id="categorySuggestionContent"></p>
+            </div>
+            <div id="goalBreakdownOutput" class="card hidden">
+                <h3>Financial Goal Breakdown:</h3>
+                <pre id="goalBreakdownContent"></pre>
+            </div>
+            <div id="homeLoanOutput" class="card hidden">
+                <h3>Home Loan Affordability:</h3>
+                <pre id="homeLoanContent"></pre>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
